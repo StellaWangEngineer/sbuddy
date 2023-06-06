@@ -29,17 +29,6 @@ jobs:
           chmod 600 sbuddy_dev.pem
           
       - name: Connect to Azure sbuddy-dev-server and deploy
-        run: |
-          ssh -i sbuddy_dev.pem ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}} -o "StrictHostKeyChecking=no"
-          sudo apt-get install -y nodejs
-          cd /home/azureuser/sbuddy
-          git pull
-          cd client
-          npm install
-          npm build
-          npm run
-          cd ..
-          cd server
-          npm install
-          npm build
-          npm run
+        uses: appleboy/ssh-action@master
+        with: 
+          script: ssh -i sbuddy_dev.pem ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}} -o "StrictHostKeyChecking=no" && sudo apt-get install -y nodejs && cd /home/azureuser/sbuddy && git pull && cd client && npm install && npm run && cd .. && cd server && npm install && npm run
