@@ -21,14 +21,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
-      - name: Create private key file
-        run: | 
-          echo -n "${{secrets.DEV_SSH_PRIVATE_KEY}}" > private_key
-          chmod 400 private_key
+        
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo -n "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
 
-      - name: Connect to Dev server
-        run: ssh -i private_key ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}} "ll"
-
-
-      
+      - name: Connect to Azure sbuddy-dev-server
+        run: |
+          ssh -i ~/.ssh/id_rsa ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}} -p 22 -o "StrictHostKeyChecking no"
+          ll
