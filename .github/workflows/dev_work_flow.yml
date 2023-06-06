@@ -32,7 +32,7 @@ jobs:
         run: |
           ssh -i sbuddy_dev.pem ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}} -o "StrictHostKeyChecking=no"
           sudo apt-get install -y nodejs
-          cd sbuddy
+          cd ~/sbuddy
           git pull
           cd client
           npm install
