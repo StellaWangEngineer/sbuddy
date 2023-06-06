@@ -22,8 +22,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       
+      - name: Create private key file
+        run: echo ${{secrets.DEV_SSH_PRIVATE_KEY}} > private_key
+
       - name: Connect to Dev server
-        run: ssh -i ${{secrets.DEV_SSH_PRIVATE_KEY}} ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}} "ll"
+        run: ssh -i private_key ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}} "ll"
 
 
       
