@@ -14,13 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       
   deploy: 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         
       - name: Set up SSH
         run: |
@@ -31,3 +31,32 @@ jobs:
       - name: Connect to Azure sbuddy-dev-server
         run: |
           ssh -i sbuddy_dev.pem ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}} -o "StrictHostKeyChecking=no"
+      
+      - name: Check Node.js Installation
+        run: node -v
+        id: check-node
+        
+      - name: Run If Node.js Installed
+        if: steps.check-node.outputs.stdout != ''
+        run: echo "Node.js is installed"
+        
+      - name: Run If Node.js Not Installed
+        if: steps.check-node.outputs.stdout == ''
+        run: | 
+          echo "Node.js is not installed"
+          echo "Node.js is installing"
+          sudo apt-get install -y nodejs
+      
+      - name: Pull code from repository dev branch
+        run: |
+          cd sbuddy
+          git pull
+          cd client
+          npm install
+          npm build
+          npm run
+          cd ..
+          cd server
+          npm install
+          npm build
+          npm run
