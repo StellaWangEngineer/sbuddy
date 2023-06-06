@@ -24,14 +24,11 @@ jobs:
         
       - name: Set up SSH
         run: |
-          mkdir -p ~/.ssh
-          echo -n "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          echo -n "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/pk.pem
-          echo -n "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
-          chmod 600 ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa.pub
+          touch sbuddy_dev.pem
+          echo -n "${{ secrets.DEV_SERVER_PRIVATE_KEY }}" > sbuddy_dev.pem
+          chmod 600 sbuddy_dev.pem
           
       - name: Connect to Azure sbuddy-dev-server
         run: |
-          ssh -i ~/.ssh/pk.pem ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}}
+          ssh -i sbuddy_dev.pem ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}}
           ll
