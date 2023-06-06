@@ -24,7 +24,7 @@ jobs:
       
       - name: Create private key file
         run: | 
-          echo -n "${{secrets.DEV_SSH_PRIVATE_KEY}}" > private_key
+          echo -n ${{secrets.DEV_SSH_PRIVATE_KEY}} > private_key
           chmod 600 private_key
 
       - name: Connect to Dev server
