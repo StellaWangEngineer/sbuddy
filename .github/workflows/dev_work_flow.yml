@@ -31,4 +31,3 @@ jobs:
       - name: Connect to Azure sbuddy-dev-server
         run: |
           ssh -i sbuddy_dev.pem ${{secrets.DEV_SERVER_USERNAME}}@${{secrets.DEV_SERVER_IP}} -o "StrictHostKeyChecking=no"
-          ll
