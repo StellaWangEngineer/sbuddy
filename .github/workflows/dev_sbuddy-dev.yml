@@ -57,5 +57,6 @@ jobs:
           app-name: 'sbuddy-dev'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_APPSERVICE_PUBLISH_PROFILE }}
-          images: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-client:${{ github.sha }}'
-          image: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-server:${{ github.sha }}'
+          images: |
+            'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-client:${{ github.sha }}'
+            'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-server:${{ github.sha }}'
