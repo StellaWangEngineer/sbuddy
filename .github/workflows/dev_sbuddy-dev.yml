@@ -45,10 +45,10 @@ jobs:
           tags: docker.io/${{ env.AZURE_WEBAPP_NAME }}/server:${{ github.sha }}
           file: ./server/Dockerfile
       
-      - name: Set up Docker Compose
-        uses: docker/compose-action@1.2.0
-        with:
-          compose-file: docker-compose.yml
+#       - name: Set up Docker Compose
+#         uses: docker/compose-action@1.2.0
+#         with:
+#           compose-file: docker-compose.yml
 
       - name: Build and push Docker images
         run: |
