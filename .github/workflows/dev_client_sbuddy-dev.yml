@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy container app to Azure Web App - sbuddy-dev
+name: Build and deploy client container app to Azure Web App - sbuddy-dev
 
 on:
   push:
@@ -33,14 +33,6 @@ jobs:
           push: true
           tags: index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-client:${{ github.sha }}
           file: ./client/Dockerfile
-      
-      - name: Build and push server container image to registry
-        uses: docker/build-push-action@v3
-        with:
-          context: ./server
-          push: true
-          tags: index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-server:${{ github.sha }}
-          file: ./server/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -57,6 +49,4 @@ jobs:
           app-name: 'sbuddy-dev'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_APPSERVICE_PUBLISH_PROFILE }}
-          images: |
-            'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-client:${{ github.sha }}'
-            'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-server:${{ github.sha }}'
+          images: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-client:${{ github.sha }}'
