@@ -26,13 +26,21 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USER }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-      - name: Build and push container image to registry
+      - name: Build and push client container image to registry
         uses: docker/build-push-action@v3
         with:
           context: ./client
           push: true
           tags: index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-client:${{ github.sha }}
           file: ./client/Dockerfile
+      
+      - name: Build and push server container image to registry
+        uses: docker/build-push-action@v3
+        with:
+          context: ./server
+          push: true
+          tags: index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-server:${{ github.sha }}
+          file: ./server/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -50,3 +58,4 @@ jobs:
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_APPSERVICE_PUBLISH_PROFILE }}
           images: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-client:${{ github.sha }}'
+          image: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-server:${{ github.sha }}'
