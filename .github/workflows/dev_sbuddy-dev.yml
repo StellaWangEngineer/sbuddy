@@ -23,16 +23,16 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: https://index.docker.io/v1/
-          username: ${{ secrets.AzureAppService_ContainerUsername_404f3969112f42b88d4f8314a77fd225 }}
-          password: ${{ secrets.AzureAppService_ContainerPassword_51f0356e7c164a5bbcac9b619572f5c2 }}
+          username: ${{ secrets.DOCKER_HUB_USER }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Build and push container image to registry
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: ./client
           push: true
-          tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_404f3969112f42b88d4f8314a77fd225 }}/arcgo/sbuddy-client:${{ github.sha }}
-          file: ./Dockerfile
+          tags: index.docker.io/${{ secrets.DOCKER_HUB_USER }}/arcgo/sbuddy-client:${{ github.sha }}
+          file: ./client/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,5 +48,5 @@ jobs:
         with:
           app-name: 'sbuddy-dev'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_6fc9830fc6de48918215b89868c6b270 }}
-          images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_404f3969112f42b88d4f8314a77fd225 }}/arcgo/sbuddy-client:${{ github.sha }}'
+          publish-profile: ${{ secrets.AZURE_APPSERVICE_PUBLISH_PROFILE }}
+          images: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/arcgo/sbuddy-client:${{ github.sha }}'
