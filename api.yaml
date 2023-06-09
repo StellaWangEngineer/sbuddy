@@ -1,0 +1,96 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: Product environment
+    url: https://virtserver.swaggerhub.com/IMINGJUNMA/sbuddy/1.0.0
+  - description: Development environment
+    url: https://virtserver.swaggerhub.com/IMINGJUNMA/sbuddy/1.0.0
+info:
+  description: REST APIs for sbuddy
+  version: "1.0.0"
+  title: Sbuddy REST API
+  contact:
+    email: imingjun.ma@outlook.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: user
+    description: User who have signed up and log in the website
+  - name: vistor
+    description: Person who doesn't log in tp the website
+paths:
+  /groups:
+    get:
+      tags:
+        - user
+        - vistor
+      summary: query a group according to conditions
+      description: |
+        By passing in the appropriate options, you can search for
+        available groups in the system
+      parameters:
+        - in: query
+          name: topic
+          description: the type of a group
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: title
+          description: the title of a group
+          required: false
+          schema:
+            type: string
+        
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+        '400':
+          description: bad input parameter
+          
+    post:
+      tags:
+        - user
+      summary: create a group
+      description: Create a group and submit it to the system
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Group'
+        description: Create a group
+      responses:
+        '201':
+          description: item created
+        '400':
+          description: 'invalid input, object invalid'
+        '409':
+          description: an existing item already exists
+    
+components:
+  schemas:
+    Group:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "Leetcode mock interview"
+        Date:
+          type: string
+          example: "2023-01-02 00:00:00 UTC"
+        URL:
+          type: string
+          example: "https://discord.com/dwdbiubn"
+        Note:
+          type: string
+          example: "No limit, join the discord server"
+        topic:
+          type: string
+          example: "technology"
