@@ -89,6 +89,9 @@ components:
         startDate:
           type: string
           example: "2023-01-02 00:00:00 UTC"
+        postDate:
+          type: string
+          example: "2023-01-02 00:00:00 UTC"
         duration:
           type: string
           example: "10 weeks"
@@ -115,6 +118,9 @@ components:
           type: string
           example: "Leetcode mock interview"
         startDate:
+          type: string
+          example: "2023-01-02 00:00:00 UTC"
+        postDate:
           type: string
           example: "2023-01-02 00:00:00 UTC"
         duration:
