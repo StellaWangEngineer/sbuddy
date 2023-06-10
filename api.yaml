@@ -68,7 +68,11 @@ paths:
         description: Create a group
       responses:
         '201':
-          description: item created
+          description: Created group successfully
+          content:
+            application/json:
+              schema:
+                  $ref: '#/components/schemas/GroupResponse'
         '400':
           description: 'invalid input, object invalid'
         '409':
@@ -82,15 +86,49 @@ components:
         title:
           type: string
           example: "Leetcode mock interview"
-        Date:
+        startDate:
           type: string
           example: "2023-01-02 00:00:00 UTC"
-        URL:
+        duration:
+          type: string
+          example: "10 weeks"
+        teamSize:
+          type: string
+          example: "10"
+        url:
           type: string
           example: "https://discord.com/dwdbiubn"
-        Note:
+        requirements:
           type: string
           example: "No limit, join the discord server"
         topic:
           type: string
           example: "technology"
+
+    GroupResponse:
+      type: object
+      properties:
+        title:
+          type: string
+          example: "Leetcode mock interview"
+        startDate:
+          type: string
+          example: "2023-01-02 00:00:00 UTC"
+        duration:
+          type: string
+          example: "10 weeks"
+        teamSize:
+          type: string
+          example: "10"
+        url:
+          type: string
+          example: "https://discord.com/dwdbiubn"
+        requirements:
+          type: string
+          example: "No limit, join the discord server"
+        topic:
+          type: string
+          example: "technology"
+        _id: 
+          type: string
+          example: "dweuhiu289u"
