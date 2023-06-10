@@ -33,6 +33,8 @@ jobs:
           push: true
           tags: index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-server:${{ github.sha }}
           file: ./server/Dockerfile
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
   deploy:
     runs-on: ubuntu-latest
