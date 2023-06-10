@@ -104,6 +104,9 @@ components:
         topic:
           type: string
           example: "technology"
+        creator:
+          type: string
+          example: "dwijnihoij0902"
 
     GroupResponse:
       type: object

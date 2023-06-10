@@ -7,7 +7,8 @@ const GroupSchema = new mongoose.Schema({
   teamSize: String,
   url: String,
   requirements: String,
-  topic: String
+  topic: String,
+  creator: String
 });
 
 const Group = mongoose.model('Group', GroupSchema);
