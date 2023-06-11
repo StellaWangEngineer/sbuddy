@@ -6,7 +6,7 @@ function SearchBar() {
   return (
     <div className="search-bar">
       <div className="search-input-container">
-        <input type="text" className="search-input" placeholder="Search..." />
+        <input type="text" className="search-input" placeholder="Search Groups..." />
         <div className="search-icon-container">
           <FiSearch className="search-icon" />
         </div>
