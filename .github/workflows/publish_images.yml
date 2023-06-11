@@ -4,7 +4,6 @@
 name: Submit docker images of client and server to docker.io
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
