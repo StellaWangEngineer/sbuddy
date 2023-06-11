@@ -3,7 +3,6 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import CategoryFilter from "./components/CategoryFilter";
-import CardGrid from "./components/CardGrid";
 
 function App() {
   return (
@@ -11,12 +10,11 @@ function App() {
       <header className="App-header">
         <Navbar />
       </header>
-
-      <div className="App-content">
+      <div className="App-search">
         <SearchBar />
-        <div className="main-content">
-          <CategoryFilter />
-        </div>
+      </div>
+      <div className="App-content">
+        <CategoryFilter />
       </div>
     </div>
   );

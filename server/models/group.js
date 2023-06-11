@@ -8,6 +8,7 @@ const GroupSchema = new mongoose.Schema({
   teamSize: String,
   url: String,
   requirements: String,
+  content: String,
   topic: String,
   creator: String
 }, { collation: 'groups'});
