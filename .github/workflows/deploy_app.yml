@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'development'
+      name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -58,7 +58,7 @@ jobs:
         with:
           app-name: 'sbuddy-dev-client'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_SERVER }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_CLIENT }}
           images: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-server:latest'
       
       - name: Deploy to Azure Web App sbuddy-dev-client
@@ -67,5 +67,5 @@ jobs:
         with:
           app-name: 'sbuddy-dev-server'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_CLIENT }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_SERVER }}
           images: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-client:latest'
