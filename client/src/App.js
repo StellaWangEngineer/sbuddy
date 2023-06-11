@@ -3,7 +3,6 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import CategoryFilter from "./components/CategoryFilter";
-import CardGrid from "./components/CardGrid";
 
 function App() {
   return (
