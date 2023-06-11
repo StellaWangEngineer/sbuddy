@@ -104,6 +104,9 @@ components:
         requirements:
           type: string
           example: "No limit, join the discord server"
+        content:
+          type: string
+          example: "balabalbal"
         topic:
           type: string
           example: "technology"
@@ -135,6 +138,9 @@ components:
         requirements:
           type: string
           example: "No limit, join the discord server"
+        content:
+          type: string
+          example: "balabalbal"
         topic:
           type: string
           example: "technology"
