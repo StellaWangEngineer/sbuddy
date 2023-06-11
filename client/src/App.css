@@ -27,6 +27,16 @@
   color: white;
 }
 
+.App-content {
+  margin-top: 10vh;
+  height: 90 vh;
+}
+
+.main-content {
+  margin-top: 10vh;
+  height: 80 vh;
+}
+
 .App-link {
   color: #61dafb;
 }
