@@ -37,6 +37,7 @@ router.post('/', function(req, res, next) {
         teamSize: req.body.teamSize,
         url: req.body.url,
         requirements: req.body.requirements,
+        content: req.body.content,
         topic: req.body.topic,
         creator: req.body.creator
     });
