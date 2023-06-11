@@ -53,19 +53,19 @@ jobs:
 
     steps:
       - name: Deploy to Azure Web App sbuddy-dev-server
-        id: deploy-to-webapp-server
+        id: deploy-to-webapp-client
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'sbuddy-dev-client'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_CLIENT }}
-          images: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-server:latest'
+          images: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-client:latest'
       
       - name: Deploy to Azure Web App sbuddy-dev-client
-        id: deploy-to-webapp-client
+        id: deploy-to-webapp-server
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'sbuddy-dev-server'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_SERVER }}
-          images: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-client:latest'
+          images: 'index.docker.io/${{ secrets.DOCKER_HUB_USER }}/sbuddy-server:latest'
