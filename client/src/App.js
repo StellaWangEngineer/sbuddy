@@ -3,6 +3,8 @@ import { FaAdjust } from "react-icons/fa";
 import './App.css';
 import NavBar from './components/NavBar';
 import SearchBar from './components/SearchBar';
+import FilterColum from './components/FilterColum';
+import GroupGrid from './components/GroupGrid';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -24,6 +26,14 @@ function App() {
           </div>
         </header>
         <SearchBar />
+        <div className="App-content">
+          <div className="FilterColum">
+            <FilterColum />
+          </div>
+          <div className="GroupGrid">
+            <GroupGrid />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -29,6 +29,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.App-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .nav-container {
   flex: 1;
   margin-right: 5%;
@@ -39,6 +45,15 @@
   display: flex;
   align-items: center;
   margin-right: 1rem;
+}
+
+.FilterColum {
+  flex: 0 0 20%;
+  margin-bottom: 20px;
+}
+
+.GroupGrid {
+  flex: 0 0 60%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
