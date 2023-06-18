@@ -6,6 +6,11 @@
     box-shadow: 0 2px 4px var(--secondary);
 }
 
+.card:hover {
+    cursor: pointer;
+    background-color: var(--secondary);
+}
+
 .card h3 {
     font-size: medium;
     font-weight: bold;

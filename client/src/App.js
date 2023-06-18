@@ -5,13 +5,19 @@ import NavBar from './components/NavBar';
 import SearchBar from './components/SearchBar';
 import FilterColum from './components/FilterColum';
 import GroupGrid from './components/GroupGrid';
+import GroupDetails from './components/GroupDetails';
 
 function App() {
   const [theme, setTheme] = useState('light');
+  const [selectedGroup, setSelectedGroup] = useState(null); // 追踪用户点击的Group
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
+  };
+
+  const handleCardClick = (group) => {
+    setSelectedGroup(group);
   };
 
   return (
@@ -31,9 +37,14 @@ function App() {
             <FilterColum />
           </div>
           <div className="GroupGrid">
-            <GroupGrid />
+            <GroupGrid onCardClick={handleCardClick}/>
           </div>
         </div>
+        {selectedGroup && (
+          <div className="GroupDetails-container">
+            <GroupDetails group={selectedGroup} />
+          </div>
+        )}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 import './GroupGrid.css';
 
-const GroupGrid = () => {
+const GroupGrid = ({ group, onCardClick }) => {
   // 示例数据
   const groups = [
     {
@@ -79,10 +79,14 @@ const GroupGrid = () => {
     }
   ];
 
+  const handleCardClick = (group) => {
+    onCardClick(group);
+  };
+
   return (
     <div className="group-grid">
       {groups.map((group, index) => (
-        <Card key={index} group={group} />
+        <Card key={index} group={group} onClick={() => handleCardClick(group)}/>
       ))}
     </div>
   );
