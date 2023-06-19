@@ -16,6 +16,9 @@ function GroupDetails({ group, onClose }) {
   return (
     <div className="group-details">
       <div className="group-details-content">
+        <span className="group-details-close" onClick={closeGroupDetails}>
+          &times;
+        </span>
         <h2>{group.title}</h2>
         <p>
           <strong>Start Date:</strong> {group.startDate}
@@ -44,9 +47,6 @@ function GroupDetails({ group, onClose }) {
         <p>
           <strong>Creator:</strong> {group.creator}
         </p>
-        <span className="group-details-close" onClick={closeGroupDetails}>
-          &times;
-        </span>
       </div>
     </div>
   );
