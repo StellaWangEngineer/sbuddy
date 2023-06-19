@@ -9,6 +9,11 @@ var groupsRouter = require('./routes/groups');
 
 var app = express();
 
+const port = process.env.PORT || 80;
+app.listen(port, () => {
+  console.log(`Express listens on ${port}`);
+});
+
 connectDB();
 
 // view engine setup
