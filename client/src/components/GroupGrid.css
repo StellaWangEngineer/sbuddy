@@ -2,4 +2,19 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-} 
+}
+
+.load-more-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.load-more-container .load-more-button {
+  color: var(--text);
+  background-color: var(--background);
+  width: 15%;
+}
