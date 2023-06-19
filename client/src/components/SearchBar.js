@@ -1,17 +1,16 @@
-import React from "react";
-import { FiSearch } from "react-icons/fi";
-import "./SearchBar.css";
+import { BiSearch } from "react-icons/bi";
+import './SearchBar.css';
 
-function SearchBar() {
+function SearchBar(params) {
   return (
-    <div className="search-bar">
-      <div className="search-input-container">
-        <input type="text" className="search-input" placeholder="Search Groups..." />
-        <div className="search-icon-container">
-          <FiSearch className="search-icon" />
-        </div>
+    <div className="search-container">
+      <div className="searchbar">
+        <input type="text" placeholder="Search Groups..." />
       </div>
-    </div>
+      <div className="search-icon">
+        <BiSearch />
+      </div>
+  </div>
   );
 }
 

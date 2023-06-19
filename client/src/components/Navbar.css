@@ -1,71 +1,31 @@
+/* App.css */
 .navbar {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary);
+    padding: 10px;
+    height: 100%;
 }
 
-.navbar__logo {
-  width: 40px;
-  height: 40px;
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text);
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
-.navbar__center {
-  height: 100%;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+button {
+    padding: 8px 16px;
+    background-color: var(--highlight);
+    color: var(--secondary);
+    border: 1px solid var(--highlight);
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 13%;
 }
 
-.navbar__search {
-  padding: 5px 10px;
-  width: 50%;
-  height: 50%;
-  border-radius: 20px;
-  font-size: 18px;
-}
-
-.navbar__right {
-  display: flex;
-  align-items: center;
-  width: 30%;
-}
-
-.navbar__button {
-  margin-left: 10px;
-  border: none;
-  background-color: transparent;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  padding: 10px 20px;
-  font-size: 20px;
-}
-
-.navbar__button:hover {
-  background-color: #fff;
-  color: #282c34;
-  cursor: pointer;
-}
-
-.navbar__icon-button {
-  width: 10%;
-  height: 100%;
-  color: #fff;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  font-size: 25px;
-  margin-left: 15px;
-}
-
-.navbar__icon-button:hover {
-  color: #282c34;
-  cursor: pointer;
-  background-color: #fff;
-  border: none;
-  font-size: 25px;
-}
+button:hover {
+    filter: brightness(130%);
+}  

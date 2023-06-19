@@ -1,20 +1,54 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Navbar from "./components/Navbar";
-import SearchBar from "./components/SearchBar";
-import CategoryFilter from "./components/CategoryFilter";
+import React, { useState } from 'react';
+import { FaAdjust } from "react-icons/fa";
+import './App.css';
+import NavBar from './components/NavBar';
+import SearchBar from './components/SearchBar';
+import FilterColum from './components/FilterColum';
+import GroupGrid from './components/GroupGrid';
+import GroupDetails from './components/GroupDetails';
 
 function App() {
+  const [theme, setTheme] = useState('light');
+  const [selectedGroup, setSelectedGroup] = useState(null);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+  };
+
+  const handleCardClick = (group) => {
+    setSelectedGroup(group);
+  };
+
+  const handleCloseGroupDetails = () => {
+    setSelectedGroup(null);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar />
-      </header>
-      <div className="App-search">
+    <div className={`App-${theme}`}>
+      <div className="App">
+        <header className="App-header">
+          <div className="nav-container">
+            <NavBar />
+          </div>
+          <div className="toggle-container">
+            <FaAdjust className="toggle-icon" onClick={toggleTheme} />
+          </div>
+        </header>
         <SearchBar />
-      </div>
-      <div className="App-content">
-        <CategoryFilter />
+        <div className="App-content">
+          <div className="FilterColum">
+            <FilterColum />
+          </div>
+          <div className="GroupGrid">
+            <GroupGrid onCardClick={handleCardClick}/>
+          </div>
+        </div>
+        {selectedGroup && (
+          <div className="GroupDetails-container">
+            <GroupDetails group={selectedGroup} onClose={handleCloseGroupDetails}/>
+          </div>
+        )}
       </div>
     </div>
   );
