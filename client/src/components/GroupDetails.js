@@ -6,11 +6,11 @@ function GroupDetails({ group, onClose }) {
 
   const closeGroupDetails = () => {
     setIsVisible(false);
-    onClose(); // Notify the parent component that the GroupDetails is being closed
+    onClose();
   };
 
   if (!isVisible) {
-    return null; // Don't render anything if the component is not visible
+    return null;
   }
 
   return (

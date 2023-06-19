@@ -9,7 +9,7 @@ import GroupDetails from './components/GroupDetails';
 
 function App() {
   const [theme, setTheme] = useState('light');
-  const [selectedGroup, setSelectedGroup] = useState(null); // 追踪用户点击的Group
+  const [selectedGroup, setSelectedGroup] = useState(null);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -18,6 +18,10 @@ function App() {
 
   const handleCardClick = (group) => {
     setSelectedGroup(group);
+  };
+
+  const handleCloseGroupDetails = () => {
+    setSelectedGroup(null);
   };
 
   return (
@@ -42,7 +46,7 @@ function App() {
         </div>
         {selectedGroup && (
           <div className="GroupDetails-container">
-            <GroupDetails group={selectedGroup} />
+            <GroupDetails group={selectedGroup} onClose={handleCloseGroupDetails}/>
           </div>
         )}
       </div>
