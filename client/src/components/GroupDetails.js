@@ -38,7 +38,7 @@ function GroupDetails({ group, onClose }) {
         <p>
           <strong>Requirements:</strong> {group.requirements}
         </p>
-        <p>
+        {/* <p>
           <strong>Content:</strong> {group.content}
         </p>
         <p>
@@ -46,7 +46,7 @@ function GroupDetails({ group, onClose }) {
         </p>
         <p>
           <strong>Creator:</strong> {group.creator}
-        </p>
+        </p> */}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ function NavBar(params) {
     return (
         <div className="navbar">
           <div className="logo">Sbuddy</div>
-          <button className="sign-button">Sign in</button>
+          <button className="create-button">Create Group</button>
         </div>
     );
 }
