@@ -6,8 +6,8 @@ const GroupGrid = ({ group, onCardClick }) => {
   const groups = [
     {
       title: '刷题招工wqkwhdnlmwoidlnw doiwlknd wqoidnw dowqnd wdowqndw o',
-      startDate: '2023-06-30',
-      postDate: '2023-06-15',
+      startDate: '2023-06-18',
+      postDate: '2023-06-18',
       duration: '3 months',
       teamSize: '10',
       url: 'https://www.discord.com',
@@ -18,7 +18,7 @@ const GroupGrid = ({ group, onCardClick }) => {
     }, {
       title: '刷题招工',
       startDate: '2023-06-30',
-      postDate: '2023-06-15',
+      postDate: '2023-05-15',
       duration: '3 months',
       teamSize: '10',
       url: 'https://www.discord.com',
@@ -29,7 +29,7 @@ const GroupGrid = ({ group, onCardClick }) => {
     }, {
       title: '刷题招工',
       startDate: '2023-06-30',
-      postDate: '2023-06-15',
+      postDate: '2023-05-15',
       duration: '3 months',
       teamSize: '10',
       url: 'https://www.discord.com',
@@ -40,18 +40,7 @@ const GroupGrid = ({ group, onCardClick }) => {
     }, {
       title: '刷题招工',
       startDate: '2023-06-30',
-      postDate: '2023-06-15',
-      duration: '3 months',
-      teamSize: '10',
-      url: 'https://www.discord.com',
-      requirements: 'Need baisc knowledge in algorithm',
-      content: 'I am a discord bot',
-      topic: '技术',
-      creator: 'Bot'
-    }, {
-      title: '刷题招工',
-      startDate: '2023-06-30',
-      postDate: '2023-06-15',
+      postDate: '2023-05-15',
       duration: '3 months',
       teamSize: '10',
       url: 'https://www.discord.com',
