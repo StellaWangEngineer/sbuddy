@@ -15,6 +15,7 @@
     font-size: medium;
     font-weight: bold;
     color: var(--highlight);
+    overflow: hidden;
 }
 
 .card p {

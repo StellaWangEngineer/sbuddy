@@ -5,7 +5,7 @@ import './GroupGrid.css';
 const GroupGrid = ({ group, onCardClick }) => {
   const groups = [
     {
-      title: '刷题招工',
+      title: '刷题招工wqkwhdnlmwoidlnw doiwlknd wqoidnw dowqnd wdowqndw o',
       startDate: '2023-06-30',
       postDate: '2023-06-15',
       duration: '3 months',

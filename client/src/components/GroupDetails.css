@@ -19,6 +19,7 @@
   border-radius: 8px;
   max-width: 600px;
   width: 80%;
+  overflow: hidden;
 }
 
 .group-details-content h2 {
