@@ -1,33 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from './Card';
 import './GroupGrid.css';
 
-const GroupGrid = ({ group, onCardClick }) => {
-  const [visibleGroups, setVisibleGroups] = useState(9);
-  const [groups, setGroups] = useState([]);
-
+const GroupGrid = ({ groups, visibleGroups, loadMoreGroups, onCardClick }) => {
   const handleCardClick = (group) => {
     onCardClick(group);
   };
-
-  const loadMoreGroups = () => {
-    setVisibleGroups((prevVisibleGroups) => prevVisibleGroups + 9);
-  };
-
-  useEffect(() => {
-    // 在组件加载时从 API 获取数据
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost/groups');
-        const data = await response.json();
-        setGroups(data);
-      } catch (error) {
-        console.error('Error fetching groups:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <div>
@@ -38,9 +16,9 @@ const GroupGrid = ({ group, onCardClick }) => {
       </div>
       {visibleGroups < groups.length && (
         <div className="load-more-container"> 
-            <button className="load-more-button" onClick={loadMoreGroups}>
-              Load More
-            </button>
+          <button className="load-more-button" onClick={loadMoreGroups}>
+            Load More
+          </button>
         </div>
       )}
     </div>
