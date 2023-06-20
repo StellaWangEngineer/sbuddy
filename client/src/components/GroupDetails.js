@@ -33,20 +33,14 @@ function GroupDetails({ group, onClose }) {
           <strong>Team Size:</strong> {group.teamSize}
         </p>
         <p>
-          <strong>Contact:</strong> <a href={group.url}>{group.url}</a>
+          <strong>Contact:</strong> <a href={group.contact}>{group.contact}</a>
         </p>
         <p>
           <strong>Requirements:</strong> {group.requirements}
         </p>
-        {/* <p>
-          <strong>Content:</strong> {group.content}
-        </p>
         <p>
-          <strong>Topic:</strong> {group.topic}
+          <strong>Notes:</strong> {group.notes}
         </p>
-        <p>
-          <strong>Creator:</strong> {group.creator}
-        </p> */}
       </div>
     </div>
   );

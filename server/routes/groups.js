@@ -32,9 +32,9 @@ router.post('/', function(req, res, next) {
         postDate: req.body.postDate,
         duration: req.body.duration,
         teamSize: req.body.teamSize,
-        url: req.body.url,
+        contact: req.body.contact,
         requirements: req.body.requirements,
-        content: req.body.content,
+        notes: req.body.notes,
         topic: req.body.topic,
         creator: req.body.creator
     });

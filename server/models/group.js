@@ -6,9 +6,9 @@ const GroupSchema = new mongoose.Schema({
   postDate: Date,
   duration: String,
   teamSize: String,
-  url: String,
+  contact: String,
   requirements: String,
-  content: String,
+  notes: String,
   topic: String,
   creator: String
 });
