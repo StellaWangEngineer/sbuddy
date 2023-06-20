@@ -4,9 +4,6 @@
 name: Deploy Web Apps to Azure
 
 on:
-  push:
-    branches:
-      - dev
   workflow_dispatch:
 
 jobs:
