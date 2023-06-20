@@ -11,8 +11,8 @@ const GroupSchema = new mongoose.Schema({
   content: String,
   topic: String,
   creator: String
-}, { collation: 'groups'});
+});
 
-const Group = mongoose.model('Group', GroupSchema);
+const Group = mongoose.model('Group', GroupSchema, 'groups');
 
 module.exports = Group;
