@@ -22,9 +22,6 @@ router.get('/', function(req, res) {
         .catch(error => {
             res.status(500).json({ error: 'Internal server error' });
         })
-        .finally(() => {
-            return res.json(query);
-        });
 });
 
 // Create a new group
