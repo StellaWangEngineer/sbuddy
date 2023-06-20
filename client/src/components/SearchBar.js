@@ -11,7 +11,11 @@ function SearchBar({ onSearch }) {
 
   useEffect(() => {
     onSearch(keyword);
-  }, [keyword, onSearch]);
+  }, [keyword]);
+
+  const handleSearch = () => {
+    onSearch(keyword);
+  };
 
   return (
     <div className="search-container">
@@ -23,7 +27,7 @@ function SearchBar({ onSearch }) {
           onChange={handleInputChange}
         />
       </div>
-      <div className="search-icon" onClick={handleInputChange}>
+      <div className="search-icon" onClick={handleSearch}>
         <BiSearch />
       </div>
     </div>
