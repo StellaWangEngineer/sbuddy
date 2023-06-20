@@ -1,10 +1,9 @@
 openapi: 3.0.0
 servers:
   # Added by API Auto Mocking Plugin
-  - description: Product environment
-    url: https://virtserver.swaggerhub.com/IMINGJUNMA/sbuddy/1.0.0
-  - description: Development environment
-    url: https://virtserver.swaggerhub.com/IMINGJUNMA/sbuddy/1.0.0
+  - description: Local environment
+    url: 'http://localhost:80/'
+ 
 info:
   description: REST APIs for sbuddy
   version: "1.0.0"
@@ -98,13 +97,13 @@ components:
         teamSize:
           type: string
           example: "10"
-        url:
+        contact:
           type: string
           example: "https://discord.com/dwdbiubn"
         requirements:
           type: string
           example: "No limit, join the discord server"
-        content:
+        notes:
           type: string
           example: "balabalbal"
         topic:
@@ -132,13 +131,13 @@ components:
         teamSize:
           type: string
           example: "10"
-        url:
+        contact:
           type: string
           example: "https://discord.com/dwdbiubn"
         requirements:
           type: string
           example: "No limit, join the discord server"
-        content:
+        notes:
           type: string
           example: "balabalbal"
         topic:
