@@ -1,46 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './FilterColum.css';
 
-function FilterColum(params) {
-    const [filters, setFilters] = useState([]);
+function FilterColum({ onFilter }) {
+  const [selectedTopics, setSelectedTopics] = useState([]);
 
-    const handleFilterChange = (filter) => {
-      if (filters.includes(filter)) {
-        setFilters(filters.filter((item) => item !== filter));
-      } else {
-        setFilters([...filters, filter]);
-      }
-    };
+  const handleTopicChange = (event) => {
+    const topic = event.target.value;
+    const isChecked = event.target.checked;
 
-    return (
-        <div className='filter-container'>
-            <h3>Filter By:</h3>
-            <label>
-                <input type="checkbox" checked={filters.includes('LeetCode')} onChange={() => handleFilterChange('LeetCode')}/>
-                LeetCode
-            </label>
-            <br />
-            <label>
-                <input type="checkbox" checked={filters.includes('New Grad')} onChange={() => handleFilterChange('New Grad')} />
-                New Grad
-            </label>
-            <br />
-            <label>
-                <input type="checkbox" checked={filters.includes('Professional')} onChange={() => handleFilterChange('Professional')} />
-                Professional
-            </label>
-            <br />
-            <label>
-                <input type="checkbox" checked={filters.includes('Beginner')} onChange={() => handleFilterChange('Beginner')} />
-                Beginner
-            </label>
-            <br />
-            <label>
-                <input type="checkbox" checked={filters.includes('All')} onChange={() => handleFilterChange('All')} />
-                All
-            </label>
-        </div>
-    );
+    if (isChecked) {
+      setSelectedTopics((prevSelectedTopics) => [...prevSelectedTopics, topic]);
+    } else {
+      setSelectedTopics((prevSelectedTopics) =>
+        prevSelectedTopics.filter((selectedTopic) => selectedTopic !== topic)
+      );
+    }
+  };
+
+  useEffect(() => {
+    onFilter(selectedTopics);
+  }, [selectedTopics]);
+
+  return (
+    <div className='filter-container'>
+      <h3>Filter By Topic:</h3>
+      <label>
+        <input type="checkbox" onChange={handleTopicChange} value="Study Skills" />
+        Study Skills
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" onChange={handleTopicChange} value="Mock Interview" />
+        Mock Interview
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" onChange={handleTopicChange} value="LeetCode Team Up" />
+        LeetCode Team Up
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" onChange={handleTopicChange} value="Activity Team Up" />
+        Activity Team Up
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" onChange={handleTopicChange} value="Project Team Up" />
+        Project Team Up
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" onChange={handleTopicChange} value="Research Team Up" />
+        Research Team Up
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" onChange={handleTopicChange} value="Study Foreign Languages" />
+        Study Foreign Languages
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" onChange={handleTopicChange} value="Find Job Team Up" />
+        Find Job Team Up
+      </label>
+    </div>
+  );
 }
 
 export default FilterColum;

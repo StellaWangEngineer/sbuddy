@@ -31,10 +31,9 @@ function App() {
     setVisibleGroups((prevVisibleGroups) => prevVisibleGroups + 9);
   };
 
-
   const handleSearch = (keyword) => {
     const filtered = groups.filter((group) => {
-      const { title, content, topic } = group;
+      const { title, topic } = group;
       const regex = new RegExp(keyword, 'i');
   
       return (
@@ -46,7 +45,19 @@ function App() {
     setFilteredGroups(filtered);
   };
   
+  const handleFilter = (selectedTopics) => {
+    if (selectedTopics == null || selectedTopics.length === 0) {
+      setFilteredGroups(groups);
+      return;
+    }
+    const filtered = groups.filter((group) => {
+      return selectedTopics.includes(group.topic);
+    });
+  
+    setFilteredGroups(filtered);
+  };
 
+  
   useEffect(() => {
     // GET groups from server
     const fetchData = async () => {
@@ -76,7 +87,7 @@ function App() {
         <SearchBar onSearch={handleSearch} />
         <div className="App-content">
           <div className="FilterColum">
-            <FilterColum />
+            <FilterColum onFilter={handleFilter}/>
           </div>
           <div className="GroupGrid">
             <GroupGrid groups={filteredGroups}  visibleGroups={visibleGroups}  loadMoreGroups={loadMoreGroups} onCardClick={handleCardClick}/>
