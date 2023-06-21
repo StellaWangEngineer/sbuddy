@@ -6,7 +6,7 @@ import './CreateGroupForm.css';
 function CreateGroupForm({ onClose }) {
   const [title, setTitle] = useState('');
   const [startDate, setStartDate] = useState('');
-  const [postDate, setPostDate] = useState('');
+  const [postDate, setPostDate] = useState(new Date().toISOString().split('T')[0]);
   const [duration, setDuration] = useState('');
   const [teamSize, setTeamSize] = useState('');
   const [contact, setContact] = useState('');
@@ -15,9 +15,6 @@ function CreateGroupForm({ onClose }) {
   const [topic, setTopic] = useState('');
 
   const handleFormSubmit = (e) => {
-    const currentDate = new Date().toISOString().split('T')[0];
-    setPostDate(currentDate);
-
     const formData = {
       title,
       startDate,
@@ -31,7 +28,7 @@ function CreateGroupForm({ onClose }) {
       creator: 'your_creator_value',
     };
 
-    axios.post('http://localhost/groups', formData)
+    axios.post(process.env.REACT_APP_API_URL + '/groups', formData)
       .then((response) => {
         console.log(response.data);
         onClose();
@@ -56,7 +53,7 @@ function CreateGroupForm({ onClose }) {
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              maxLength={10}
+              maxLength={20}
               required
             />
           </label>

@@ -74,7 +74,7 @@ function App() {
     // GET groups from server
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost/groups");
+        const response = await fetch(process.env.REACT_APP_API_URL + '/groups');
         const data = await response.json();
         setGroups(data);
         setFilteredGroups(data); // Initially, display all groups
