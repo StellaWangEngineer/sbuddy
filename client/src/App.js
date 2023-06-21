@@ -7,6 +7,7 @@ import FilterColum from './components/FilterColum';
 import GroupGrid from './components/GroupGrid';
 import GroupDetails from './components/GroupDetails';
 import Footer from './components/Footer';
+import CreateGroupForm from './components/CreateGroupForm';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -14,6 +15,8 @@ function App() {
   const [groups, setGroups] = useState([]);
   const [visibleGroups, setVisibleGroups] = useState(9);
   const [filteredGroups, setFilteredGroups] = useState([]);
+  const [showCreateGroupForm, setShowCreateGroupForm] = useState(false);
+
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -26,6 +29,14 @@ function App() {
 
   const handleCloseGroupDetails = () => {
     setSelectedGroup(null);
+  };
+
+  const handleCreateGroup = () => {
+    setShowCreateGroupForm(true);
+  };
+
+  const handleCreateGroupClose = () => {
+    setShowCreateGroupForm(false);
   };
 
   const loadMoreGroups = () => {
@@ -79,7 +90,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <div className="nav-container">
-            <NavBar />
+            <NavBar onClickCreateGroupForm={handleCreateGroup}/>
           </div>
           <div className="toggle-container">
             <FaAdjust className="toggle-icon" onClick={toggleTheme} />
@@ -97,6 +108,11 @@ function App() {
         {selectedGroup && (
           <div className="GroupDetails-container">
             <GroupDetails group={selectedGroup} onClose={handleCloseGroupDetails}/>
+          </div>
+        )}
+        {showCreateGroupForm && (
+          <div className="CreateGroupForm-container">
+            <CreateGroupForm onClose={handleCreateGroupClose} />
           </div>
         )}
         <Footer />
