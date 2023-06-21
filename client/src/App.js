@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar';
 import FilterColum from './components/FilterColum';
 import GroupGrid from './components/GroupGrid';
 import GroupDetails from './components/GroupDetails';
+import Footer from './components/Footer';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -98,6 +99,7 @@ function App() {
             <GroupDetails group={selectedGroup} onClose={handleCloseGroupDetails}/>
           </div>
         )}
+        <Footer />
       </div>
     </div>
   );
