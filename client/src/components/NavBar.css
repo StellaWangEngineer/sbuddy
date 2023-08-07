@@ -1,0 +1,42 @@
+/* App.css */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.left-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.slogan {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+button {
+    padding: 1%;
+    background-color: var(--highlight);
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    border-radius: 15px;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--text);
+}
