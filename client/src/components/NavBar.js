@@ -10,7 +10,10 @@ function NavBar({onClickCreateGroupForm}) {
 
   return (
       <div className="navbar">
-        <div className="logo">Sbuddy</div>
+        <div className='left-container'>
+          <div className="logo">Sbuddy</div>
+          <div className="slogan"> | Find your study buddy</div>
+        </div>
         <button className="create-button" onClick={toggleCreateGroupForm}>Create Group</button>
       </div>
   );
