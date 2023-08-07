@@ -32,6 +32,7 @@ function CreateGroupForm({ onClose }) {
       .then((response) => {
         console.log(response.data);
         onClose();
+        window.location.reload();
       })
       .catch((error) => {
         console.error(error);
@@ -63,6 +64,7 @@ function CreateGroupForm({ onClose }) {
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -71,12 +73,13 @@ function CreateGroupForm({ onClose }) {
               type="text"
               value={duration}
               onChange={(e) => setDuration(e.target.value)}
+              required
             />
           </label>
           <label>
             Team Size:
             <input
-              type="text"
+              type="number"
               value={teamSize}
               onChange={(e) => setTeamSize(e.target.value)}
             />
@@ -103,7 +106,7 @@ function CreateGroupForm({ onClose }) {
           </label>
           <label>
             Topic:
-            <select value={topic} onChange={(e) => setTopic(e.target.value)}>
+            <select value={topic} onChange={(e) => setTopic(e.target.value)} required>
               <option value="">Select Topic</option>
               <option value="Study Skills">Study Skills</option>
               <option value="Mock Interview">Mock Interview</option>
